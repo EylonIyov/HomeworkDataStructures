@@ -6,6 +6,7 @@ public class GeneralPurposeHeap <T extends Comparable> {
 
     public GeneralPurposeHeap() {
     this.heap = new ArrayList<T>();
+    this.heap.set(0, null);
     this.size = 0;
     }
     public GeneralPurposeHeap(T SingleObject) {
