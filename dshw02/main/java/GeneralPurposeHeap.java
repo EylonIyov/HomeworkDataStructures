@@ -53,17 +53,35 @@ public class GeneralPurposeHeap <T extends Comparable<T>> {
        }
     }
 
-    public void PercUp(int index,T Object, T[] heap) {
-        int parentIndex = (index-1/2) ;
-        if (index == 0){
-            heap[0] = Object;
-        }else if (heap[parentIndex].compareTo(Object) < 0 && heap[parentIndex] != null){
-            heap[index] = Object;
-        }else {
-            heap[index] = heap[parentIndex];
-            PercUp(parentIndex, Object,heap);
-       }
+//    public void PercUp(int index,T Object, T[] heap) {
+//        int parentIndex = (index-1/2) ;
+//        if (index == 0 ){
+//            heap[0] = Object;
+//        }else if (heap[parentIndex] != null && heap[parentIndex].compareTo(Object) < 0 ){
+//            heap[index] = Object;
+//        }else {
+//            heap[index] = heap[parentIndex];
+//            PercUp(parentIndex, Object,heap);
+//       }
+//    }
+//    private void percUp(int index){
+//        if(index == 0) return;
+//        int parent = (index-1 / 2);
+//        if(this.heap[parent].compareTo(heap[index]) < 0) return;
+//        swap(parent, index);
+//        percUp(parent);
+//    }
+private void percUp(T[] heap, int index) {
+    while (index > 0) {
+        int parentIndex = (index - 1) / 2;
+        if (heap[parentIndex] != null  && heap[index] != null  && heap[index].compareTo(heap[parentIndex]) < 0) {
+            swap(index, parentIndex);
+            index = parentIndex;
+        } else {
+            break;
+        }
     }
+}
 
     private void ExpandHeap() {
         int newCapacity = this.capacity * 2;
@@ -84,8 +102,8 @@ public class GeneralPurposeHeap <T extends Comparable<T>> {
             this.ExpandHeap();
         }
             heap[size] = Object;
+            percUp(this.heap, size);
             this.size++;
-            PercUp(size, Object, heap);
         }
 
     public int getSize(){

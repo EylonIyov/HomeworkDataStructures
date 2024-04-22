@@ -35,7 +35,7 @@ public class TesterClass {
                     System.out.println("Array after sorting into heap: \n"+Arrays.toString(TestHeap2.heap));
                     break;
                 case "4":
-                    Integer[] ArrayInteger = GenerateArray(16, 1, 16);
+                    Integer[] ArrayInteger = {5,7,6,9,1,4,1,6};
                     GeneralPurposeHeap<Integer> TestHeap3 = new GeneralPurposeHeap<Integer>(ArrayInteger);
                     System.out.println("Write number to insert");
                     Integer number = new Scanner(System.in).nextInt();
