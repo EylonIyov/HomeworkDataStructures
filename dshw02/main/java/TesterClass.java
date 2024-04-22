@@ -1,4 +1,3 @@
-import java.time.Period;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,7 +14,8 @@ public class TesterClass {
     public static void main(String[] args) {
         String TestCase = " ";
         while (!TestCase.equals("exit")){
-            System.out.println("Enter a case to test \n 1. Build an empty heap \n 2. Build a heap with a capacity argument \n 3. Build a heap from an array \n 4. Insert function");
+            System.out.println("Enter a case to test \n 1. Build an empty heap \n 2. Build a heap with a capacity argument \n 3. Build a heap from an array \n 4. Insert function \n" +
+                    " 5. Get minimum value \n 'exit' to exit" );
             TestCase = new Scanner(System.in).nextLine();
             switch (TestCase) {
                 case "1":
@@ -42,7 +42,15 @@ public class TesterClass {
                     TestHeap3.insert(number);
                     System.out.println("size: "+ TestHeap3.getSize());
                     System.out.println(Arrays.toString(TestHeap3.heap));
-
+                    break;
+                case "5":
+                    Integer[] ArrayInteger1 = GenerateArray(8,1,8);
+                    GeneralPurposeHeap<Integer> TestHeap4 = new GeneralPurposeHeap<Integer>(ArrayInteger1);
+                    System.out.println(Arrays.toString(TestHeap4.heap));
+                    System.out.println(TestHeap4.getMin());
+                    break;
+                case "exit":
+                    System.out.println("Exiting program, Thanks for using the TesterClass made by Eylon Iyov");
             }
         }
 

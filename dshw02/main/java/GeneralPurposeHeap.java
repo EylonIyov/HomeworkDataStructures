@@ -52,25 +52,6 @@ public class GeneralPurposeHeap <T extends Comparable<T>> {
            }
        }
     }
-
-//    public void PercUp(int index,T Object, T[] heap) {
-//        int parentIndex = (index-1/2) ;
-//        if (index == 0 ){
-//            heap[0] = Object;
-//        }else if (heap[parentIndex] != null && heap[parentIndex].compareTo(Object) < 0 ){
-//            heap[index] = Object;
-//        }else {
-//            heap[index] = heap[parentIndex];
-//            PercUp(parentIndex, Object,heap);
-//       }
-//    }
-//    private void percUp(int index){
-//        if(index == 0) return;
-//        int parent = (index-1 / 2);
-//        if(this.heap[parent].compareTo(heap[index]) < 0) return;
-//        swap(parent, index);
-//        percUp(parent);
-//    }
 private void percUp(T[] heap, int index) {
     while (index > 0) {
         int parentIndex = (index - 1) / 2;
@@ -91,7 +72,7 @@ private void percUp(T[] heap, int index) {
         this.capacity = newCapacity;
     }
 
-    public void swap(int i, int j) {
+    private void swap(int i, int j) {
         T temp = this.heap[i];
         this.heap[i] = this.heap[j];
         this.heap[j] = temp;
